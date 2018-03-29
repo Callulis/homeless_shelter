@@ -3,9 +3,9 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-      <h1>Homeless Shelter</h1>
+      <h1>Home Page</h1>
 
-      <p>Please donate if you can! Or if you're a shelter, please make a post saying what you need.</p>
+      <p>Welcome! Please post whatever local homeless shelters need.</p>
     </div>
   );
 }

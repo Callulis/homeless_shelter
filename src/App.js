@@ -36,7 +36,7 @@ class App extends React.Component {
            <NavItem eventKey={2}>Shelter Posts</NavItem>
         </LinkContainer>
         <LinkContainer to="/favourites">
-           <NavItem eventKey={3}>Bookmarks</NavItem>
+           <NavItem eventKey={3}>Bookmarked Posts</NavItem>
         </LinkContainer>
       </Nav>
       <Nav pullRight>

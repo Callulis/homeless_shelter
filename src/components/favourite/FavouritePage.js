@@ -32,7 +32,7 @@ class FavouritePage extends React.Component{
     const deleteFav = this.props.mappedFavToDel;
     return(
       <div>
-        <h1>Bookmarks</h1>
+        <h1>Favourites Page</h1>
         <table className="table">
                   <thead>
                   <tr>

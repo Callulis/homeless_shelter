@@ -146,7 +146,7 @@ class BookPage extends React.Component {
     //return jsx
     return(
       <div className="BookPageDiv">
-       <div> 
+       <div>
        {this.props.mappedAppSate.showAddBook &&
        <div className="addBookBox">
        <h3 className="addBookHeading">Add New Book</h3>
@@ -163,17 +163,18 @@ class BookPage extends React.Component {
 
       <div className="row">
           <div className="col-md-12">
-          <h3>Posts</h3>
+          <h3>Shelter Posts</h3>
 
           <table className="table booksTable">
           <thead>
-           <tr><th>Title</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">View</th></tr>
+           <tr><th>Title</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">Pdf</th><th className="textCenter">View</th></tr>
           </thead>
           <tbody>
           {books.map((b,i) => <tr key={i}>
           <td>{b.title}</td>
            <td className="textCenter"><Button onClick={() => this.showEditModal(b)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
            <td className="textCenter"><Button onClick={() => this.showDeleteModal(b)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
+           <td className="textCenter"><a target="__blank" href={`//localhost:8080/${b.fileName}`}><Button bsStyle="warning" bsSize="xsmall"><Glyphicon glyph="file" /> Pdf</Button></a></td>
            <td className="textCenter"><Link to={`/book/${b._id}`}>View Details</Link> </td>
            </tr> )}
           </tbody>

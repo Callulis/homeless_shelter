@@ -11,7 +11,7 @@ const BookForm = (props) => {
     <div className="row">
     <div className="col-md-12">
     <FormGroup>
-          <ControlLabel>Name: </ControlLabel>
+          <ControlLabel>Title: </ControlLabel>
             <FormControl
               type="text" placeholder="Enter title"
               name="title"
@@ -20,11 +20,11 @@ const BookForm = (props) => {
         </div>
       <div className="col-md-6">
         <FormGroup >
-        <ControlLabel>Address: </ControlLabel>
+        <ControlLabel>PDF File: </ControlLabel>
         <input className="form-control"
-            type="text" placeholder = "Address here"
+            type="file"
             name="file"
-            />
+           id="file" accept=".pdf,.PDF" onChange={props.handleUploadFile}/>
       </FormGroup>
     </div>
     <div className="col-md-6">
@@ -55,6 +55,7 @@ const BookForm = (props) => {
           </FormGroup>
         </div>
     </div>
+
         <FormGroup>
             <Button type="submit" bsStyle="success" bsSize="large" block>Submit</Button>
         </FormGroup>
