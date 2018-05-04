@@ -23,7 +23,7 @@ class App extends React.Component {
       <Navbar inverse  collapseOnSelect className="customNav">
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="#">BookLibrary</a>
+        <strong><text>Homeless Shelter</text></strong>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
@@ -37,6 +37,12 @@ class App extends React.Component {
         </LinkContainer>
         <LinkContainer to="/favourites">
            <NavItem eventKey={3}>Bookmarked Posts</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/signup">
+           <NavItem eventKey={4}>Sign Up</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/login">
+           <NavItem eventKey={5}>Login</NavItem>
         </LinkContainer>
       </Nav>
       <Nav pullRight>
