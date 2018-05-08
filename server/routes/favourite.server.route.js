@@ -3,8 +3,6 @@ import * as  favouriteController from '../controllers/favourite.server.controlle
 
 const router = express.Router();
 
-
-
 router.route('/')
       .get(favouriteController.getFavourites)
       .post(favouriteController.addFavourite);

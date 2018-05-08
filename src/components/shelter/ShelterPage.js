@@ -33,24 +33,18 @@ class ShelterPage extends React.Component {
   submitShelter(e){
     e.preventDefault();
     const form = document.getElementById('myForm');
-    if(form.file.value === '' || form.title.value === '' || form.author.value === '' || form.price.value === '' || form.year.value === ''){
+    if(form.title.value === '' || form.author.value === '' || form.price.value === '' || form.year.value === ''){
       this.props.createShelterFailed('Fill all fields');
       return;
     }
-    const fileName = document.getElementById('file').files[0].name;
-    const fileExt = fileName.split('.').pop();
-    if(fileExt === "pdf"){
-      const data = new FormData();
-      data.append('title',form.title.value);
-      data.append('author',form.author.value);
-      data.append('price',form.price.value);
-      data.append('year',form.year.value);
-      data.append('file',document.getElementById('file').files[0]);
-      this.props.createShelter(data);
-      form.reset();
-    }else{
-    alert('Only pdf file is allowed');
-  }
+
+    const data = new FormData();
+    data.append('title',form.title.value);
+    data.append('author',form.author.value);
+    data.append('price',form.price.value);
+    data.append('year',form.year.value);
+    this.props.createShelter(data);
+    form.reset();
   }
 
   hideShelterMessage(e){
@@ -81,28 +75,20 @@ class ShelterPage extends React.Component {
   submitEditShelter(e){
      e.preventDefault();
      const editForm = document.getElementById('shelterEditForm');
-     if(editForm.file.value === '' || editForm.title.value === '' || editForm.author.value === '' || editForm.price.value === '' || editForm.year.value === ''){
+     if(editForm.title.value === '' || editForm.author.value === '' || editForm.price.value === '' || editForm.year.value === ''){
        this.props.mappededitShelterFailed('Fill all fields');
        return;
      }
      else{
-       const fileName = document.getElementById('editfile').files[0].name;
-       const fileExt = fileName.split('.').pop();
-       if(fileExt === "pdf"){
-         const data = new FormData();
-         data.append('_id',editForm.ShelterId.value);
-         data.append('title',editForm.title.value);
-         data.append('author',editForm.author.value);
-         data.append('price', editForm.price.value);
-         data.append('year',editForm.year.value);
-         data.append('file',document.getElementById('editfile').files[0]);
-         data.append('filePath',editForm.filePath.value);
-         this.props.mappededitShelter(data);
 
-       }
-       else{
-       alert('Only pdf file is allowed');
-     }
+    const data = new FormData();
+    data.append('_id',editForm.ShelterId.value);
+    data.append('title',editForm.title.value);
+    data.append('author',editForm.author.value);
+    data.append('price', editForm.price.value);
+    data.append('year',editForm.year.value);
+    this.props.mappededitShelter(data);
+
      }
 
   }
@@ -167,14 +153,13 @@ class ShelterPage extends React.Component {
 
           <table className="table sheltersTable">
           <thead>
-           <tr><th>Title</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">Pdf</th><th className="textCenter">View</th></tr>
+           <tr><th>Title</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">View</th></tr>
           </thead>
           <tbody>
           {shelters.map((b,i) => <tr key={i}>
           <td>{b.title}</td>
            <td className="textCenter"><Button onClick={() => this.showEditModal(b)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
            <td className="textCenter"><Button onClick={() => this.showDeleteModal(b)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
-           <td className="textCenter"><a target="__blank" href={`//localhost:8080/${b.fileName}`}><Button bsStyle="warning" bsSize="xsmall"><Glyphicon glyph="file" /> Pdf</Button></a></td>
            <td className="textCenter"><Link to={`/shelter/${b._id}`}>View Details</Link> </td>
            </tr> )}
           </tbody>

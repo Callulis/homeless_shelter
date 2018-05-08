@@ -16,26 +16,12 @@ const ShelterEditForm = (props) => {
             type="hidden"
             name="ShelterId" defaultValue={props.shelterData._id}
              />
-             <FormControl
-               type="hidden"
-               name="filePath" defaultValue={props.shelterData.filePath}
-                />
             <FormControl
               type="text" placeholder="Enter title"
               name="title" defaultValue={props.shelterData.title}
                />
         </FormGroup>
         </div>
-      <div className="col-md-6">
-        <FormGroup >
-        <ControlLabel>PDF File: </ControlLabel>
-        <center><a target="__blank" href={`//localhost:8080/${props.shelterData.fileName}`}><Button bsStyle="warning" bsSize="xsmall"><Glyphicon glyph="file" />View Pdf</Button></a></center>
-        <input className="form-control"
-            type="file"
-            name="file"
-           id="editfile" accept=".pdf,.PDF" onChange={props.handleUploadFile}/>
-      </FormGroup>
-    </div>
     <div className="col-md-6">
         <FormGroup>
           <ControlLabel>Author: </ControlLabel>

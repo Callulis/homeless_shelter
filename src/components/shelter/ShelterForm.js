@@ -18,16 +18,7 @@ const ShelterForm = (props) => {
                />
         </FormGroup>
         </div>
-      <div className="col-md-6">
-        <FormGroup >
-        <ControlLabel>PDF File: </ControlLabel>
-        <input className="form-control"
-            type="file"
-            name="file"
-           id="file" accept=".pdf,.PDF" onChange={props.handleUploadFile}/>
-      </FormGroup>
-    </div>
-    <div className="col-md-6">
+    <div className="col-md-12">
         <FormGroup>
           <ControlLabel>Author: </ControlLabel>
             <FormControl

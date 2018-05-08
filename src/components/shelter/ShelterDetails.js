@@ -38,19 +38,6 @@ render(){
   return (
     <div className="shelterDetail">
         <div className="col-md-6">
-          <a target="__blank" href={`//localhost:8080/${b.fileName}`}>
-            <div className="small_pdf_image">
-              <ReactPDF
-                      file={`http://localhost:8080/${b.fileName}`}
-                      pageIndex={0}
-                      loading="Please wait!" scale={2.0} width={300}
-                      onDocumentLoad={this.onDocumentLoad}
-                      onPageLoad={this.onPageLoad}
-                  />
-            </div>
-          </a>
-        </div>
-        <div className="col-md-6">
           <h4 className="">{b.title}</h4>
           <ul className="list-group">
             <li><stron>Author: </stron> {b.author}</li>
