@@ -1,8 +1,8 @@
-// ./src/components/book/BookDetails.js
+// ./src/components/shelter/ShelterDetails.js
 import React from 'react';
 import ReactPDF from 'react-pdf';
-import './BookPage.css'
-// const BookDetails = ({book, addToCart}) => {
+import './ShelterPage.css'
+// const ShelterDetails = ({shelter, addToCart}) => {
 //   return (
 //     <div className="media">
 //         <div className="media-left">
@@ -11,20 +11,20 @@ import './BookPage.css'
 //           </a>
 //         </div>
 //         <div className="media-body">
-//           <h4 className="media-heading">{book.title}</h4>
+//           <h4 className="media-heading">{shelter.title}</h4>
 //           <ul>
-//             <li><stron>Author: </stron> {book.author}</li>
-//             <li><stron>Price: </stron> ${book.price}</li>
-//             <li><stron>Year: </stron> {book.year}</li>
+//             <li><stron>Author: </stron> {shelter.author}</li>
+//             <li><stron>Price: </stron> ${shelter.price}</li>
+//             <li><stron>Year: </stron> {shelter.year}</li>
 //             <br/>
-//             <button className="btn btn-primary" onClick={e => addToCart(book)}>Buy</button>
+//             <button className="btn btn-primary" onClick={e => addToCart(shelter)}>Buy</button>
 //           </ul>
 //         </div>
 //       </div>
 //   )
 // }
 
-class BookDetails extends React.Component {
+class ShelterDetails extends React.Component {
   // constructor(props) {
   //   super(props);
   // }
@@ -34,9 +34,9 @@ class BookDetails extends React.Component {
 
 render(){
   const { isFetching, favourites, newFavourite, error } = this.props.favouritesData;
-  const  b  = this.props.book;
+  const  b  = this.props.shelter;
   return (
-    <div className="bookDetail">
+    <div className="shelterDetail">
         <div className="col-md-6">
           <a target="__blank" href={`//localhost:8080/${b.fileName}`}>
             <div className="small_pdf_image">
@@ -60,8 +60,8 @@ render(){
             {isFetching && newFavourite == null &&
               <h3>Adding to favourites...</h3>
             }
-            {!isFetching && newFavourite != null && newFavourite.book._id === b._id &&
-              <h3>Book Successfully added to favourites</h3>
+            {!isFetching && newFavourite != null && newFavourite.shelter._id === b._id &&
+              <h3>Shelter Successfully added to favourites</h3>
             }
             {!isFetching && newFavourite == null && error != null &&
               <h3>{error}</h3>
@@ -75,4 +75,4 @@ render(){
 
 }
 
-export default BookDetails;
+export default ShelterDetails;

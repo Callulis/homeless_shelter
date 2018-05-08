@@ -8,9 +8,9 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _bookServer = require('../controllers/book.server.controller');
+var _shelterServer = require('../controllers/shelter.server.controller');
 
-var bookController = _interopRequireWildcard(_bookServer);
+var shelterController = _interopRequireWildcard(_shelterServer);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -32,9 +32,9 @@ const router = _express2.default.Router();
 //
 // var upload = multer({ storage: storage }).single('file');
 
-router.route('/').get(bookController.getBooks).post(bookController.addBook).put(bookController.editBook);
+router.route('/').get(shelterController.getShelters).post(shelterController.addShelter).put(shelterController.editShelter);
 
-router.route('/:id').get(bookController.getBookById).delete(bookController.deleteBook);
+router.route('/:id').get(shelterController.getShelterById).delete(shelterController.deleteShelter);
 
 exports.default = router;
-//# sourceMappingURL=book.server.route.js.map
+//# sourceMappingURL=shelter.server.route.js.map

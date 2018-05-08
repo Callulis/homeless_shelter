@@ -1,11 +1,11 @@
-// ./src/components/book/BookForm.js
+// ./src/components/shelter/ShelterForm.js
 import React from 'react';
 import { FormGroup,ControlLabel,FormControl,Button } from 'react-bootstrap';
 
-const BookForm = (props) => {
+const ShelterForm = (props) => {
   return (
     <form
-    className="form form-horizontal" id="myForm" onSubmit={props.submitBook}
+    className="form form-horizontal" id="myForm" onSubmit={props.submitShelter}
     >
 
     <div className="row">
@@ -63,4 +63,4 @@ const BookForm = (props) => {
   );
 };
 
-export default BookForm;
+export default ShelterForm;

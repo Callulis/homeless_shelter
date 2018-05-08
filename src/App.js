@@ -11,11 +11,11 @@ import './App.css';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.toggleAddBook = this.toggleAddBook.bind(this);
+    this.toggleAddShelter = this.toggleAddShelter.bind(this);
   }
-  toggleAddBook(e){
+  toggleAddShelter(e){
     e.preventDefault();
-     this.props.mappedToggleAddBook();
+     this.props.mappedToggleAddShelter();
   }
   render(){
     return (
@@ -32,7 +32,7 @@ class App extends React.Component {
         <LinkContainer to="/">
            <NavItem eventKey={1}>Home</NavItem>
         </LinkContainer>
-        <LinkContainer to="/books">
+        <LinkContainer to="/shelters">
            <NavItem eventKey={2}>Shelter Posts</NavItem>
         </LinkContainer>
         <LinkContainer to="/favourites">
@@ -46,8 +46,8 @@ class App extends React.Component {
         </LinkContainer>
       </Nav>
       <Nav pullRight>
-      {this.props.location.pathname === '/books' &&
-      <LinkContainer to="/" onClick={this.toggleAddBook}>
+      {this.props.location.pathname === '/shelters' &&
+      <LinkContainer to="/" onClick={this.toggleAddShelter}>
          <NavItem eventKey={1}>Add Post</NavItem>
       </LinkContainer>
       }
@@ -75,7 +75,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     //you can now say this.props.mappedAppActions
-    mappedToggleAddBook: () => dispatch(appActions.toggleAddBook())
+    mappedToggleAddShelter: () => dispatch(appActions.toggleAddShelter())
   }
 }
 

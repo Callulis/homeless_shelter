@@ -2,8 +2,8 @@
 
 const apiUrl = "/api/";
 
-export const toggleAddBook = () => {
+export const toggleAddShelter = () => {
   return {
-    type: 'TOGGLE_ADD_BOOK'
+    type: 'TOGGLE_ADD_SHELTER'
   }
 }

@@ -1,109 +1,109 @@
-// ./src/reducers/bookReducers.js
+// ./src/reducers/shelterReducers.js
 
-const INITIAL_STATE = { booksList: {books: [], error:null, isFetching: false},
-							newBook:{book:null, error: null, isAdding: false},
-							deleteBook:{
+const INITIAL_STATE = { sheltersList: {shelters: [], error:null, isFetching: false},
+							newShelter:{shelter:null, error: null, isAdding: false},
+							deleteShelter:{
 								showDeleteModal: false,
-							  bookToDelete: null,
+							  shelterToDelete: null,
 							  isFetching: false,
 							  error: null,
 							  successMsg:null
 							},
-							editBook:{
+							editShelter:{
 									showEditModal: false,
-								  bookToEdit: null,
+								  shelterToEdit: null,
 								  isFetching: false,
 								  error: null,
 								  successMsg:null
 								}
 						};
 
-// For handling array of books
-export const booksReducer =  (currentState = INITIAL_STATE, action) => {
+// For handling array of shelters
+export const sheltersReducer =  (currentState = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'CREATE_BOOK_REQUEST':
-          return { ...currentState, booksList: {books:[...currentState.booksList.books], error:null,isFetching: true},newBook:{book:null, error:null, isAdding:true}};
+    case 'CREATE_SHELTER_REQUEST':
+          return { ...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null,isFetching: true},newShelter:{shelter:null, error:null, isAdding:true}};
 
-    case 'CREATE_BOOK_SUCCESS':
+    case 'CREATE_SHELTER_SUCCESS':
           //  const nextState = [
           //    ...currentState,
-          //    Object.assign({}, action.book)
+          //    Object.assign({}, action.shelter)
           //  ];return { ...state, activePost:{...state.activePost, loading: true}};
-          const nextState = { ...currentState, booksList:{books:[...currentState.booksList.books, action.book], isFetching:false},newBook:{book:action.book, error:null, isAdding:false}}
+          const nextState = { ...currentState, sheltersList:{shelters:[...currentState.sheltersList.shelters, action.shelter], isFetching:false},newShelter:{shelter:action.shelter, error:null, isAdding:false}}
       return nextState;
 
-	 case 'CREATE_BOOK_REQUEST_FAILED':
-	       return { ...currentState, booksList:{books:[...currentState.booksList.books], error:null, isFetching:false}, newBook:{book:null, error:action.message, isAdding:false}}
+	 case 'CREATE_SHELTER_REQUEST_FAILED':
+	       return { ...currentState, sheltersList:{shelters:[...currentState.sheltersList.shelters], error:null, isFetching:false}, newShelter:{shelter:null, error:action.message, isAdding:false}}
 
-  case 'FETCH_BOOK_REQUEST':
-         return { ...currentState, booksList: {books:[], error: null, isFetching: true} };
+  case 'FETCH_SHELTER_REQUEST':
+         return { ...currentState, sheltersList: {shelters:[], error: null, isFetching: true} };
 
-   case 'FETCH_BOOK_SUCCESS':
-          //return action.books;
-           return { ...currentState, booksList: {books: action.books, error:null, isFetching: false} };
-   case 'HIDE_BOOK_MESSAGE':
-	         return { ...currentState, booksList: {books:[...currentState.booksList.books], error:null,isFetching: false},newBook:{book:null, error:null, isAdding:false}};
+   case 'FETCH_SHELTER_SUCCESS':
+          //return action.shelters;
+           return { ...currentState, sheltersList: {shelters: action.shelters, error:null, isFetching: false} };
+   case 'HIDE_SHELTER_MESSAGE':
+	         return { ...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null,isFetching: false},newShelter:{shelter:null, error:null, isAdding:false}};
 
 	 case 'SHOW_DELETE_MODAL':
 	 			return{
-	 				...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, deleteBook: {showDeleteModal:true, bookToDelete:action.bookToDelete}
+	 				...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, deleteShelter: {showDeleteModal:true, shelterToDelete:action.shelterToDelete}
 	 			}
 
 	 case 'HIDE_DELETE_MODAL':
 	 			return{
-	 				...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, deleteBook: {showDeleteModal:false, bookToDelete:null}
+	 				...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, deleteShelter: {showDeleteModal:false, shelterToDelete:null}
 	 			}
 
-	 case 'CONFIRM_DELETE_BOOK_REQUEST':
+	 case 'CONFIRM_DELETE_SHELTER_REQUEST':
 	 			return{
-	 				...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, deleteBook: {showDeleteModal:true, bookToDelete:action.bookToDelete, isFetching:true,error:null,successMsg:null}
+	 				...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, deleteShelter: {showDeleteModal:true, shelterToDelete:action.shelterToDelete, isFetching:true,error:null,successMsg:null}
 	 			}
 
-	 case 'CONFIRM_DELETE_BOOK_REQUEST_FAILED':
+	 case 'CONFIRM_DELETE_SHELTER_REQUEST_FAILED':
 	 			return{
-	 				...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, deleteBook: {showDeleteModal:true, bookToDelete:currentState.bookToDelete, isFetching:false, error:action.message}
+	 				...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, deleteShelter: {showDeleteModal:true, shelterToDelete:currentState.shelterToDelete, isFetching:false, error:action.message}
 	 			}
 
-	 case 'CONFIRM_DELETE_BOOK_REQUEST_SUCCESS':
-	      const filterdBooks = currentState.booksList.books.filter(book => book._id !== action.deletedBookId);
+	 case 'CONFIRM_DELETE_SHELTER_REQUEST_SUCCESS':
+	      const filterdShelters = currentState.sheltersList.shelters.filter(shelter => shelter._id !== action.deletedShelterId);
 	 			return{
-	 				...currentState, booksList: {books:filterdBooks, error:null, isFetching: false}, deleteBook: {showDeleteModal:true, bookToDelete:null, isFetching:false, error:null,successMsg:action.message}
+	 				...currentState, sheltersList: {shelters:filterdShelters, error:null, isFetching: false}, deleteShelter: {showDeleteModal:true, shelterToDelete:null, isFetching:false, error:null,successMsg:action.message}
 	 			}
 
 	 case 'SHOW_EDIT_MODAL':
 	      return {
-					...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, editBook:{showEditModal:true, bookToEdit:action.bookToEdit}
+					...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, editShelter:{showEditModal:true, shelterToEdit:action.shelterToEdit}
 				}
 
 		case 'HIDE_EDIT_MODAL':
 				return {
-					...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, editBook:{showEditModal:false, bookToEdit:null}
+					...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, editShelter:{showEditModal:false, shelterToEdit:null}
 				}
 
-		case 'EDIT_BOOK_REQUEST':
+		case 'EDIT_SHELTER_REQUEST':
 				return {
-					...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, editBook:{showEditModal:true, bookToEdit:action.bookToEdit, isFetching:true, error:null, successMsg:null}
+					...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, editShelter:{showEditModal:true, shelterToEdit:action.shelterToEdit, isFetching:true, error:null, successMsg:null}
 				}
 
-		case 'EDIT_BOOK_REQUEST_FAILED':
+		case 'EDIT_SHELTER_REQUEST_FAILED':
 				return {
-					...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, editBook:{showEditModal:true, bookToEdit:currentState.editBook.bookToEdit, isFetching:false, error:action.message, successMsg:null}
+					...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, editShelter:{showEditModal:true, shelterToEdit:currentState.editShelter.shelterToEdit, isFetching:false, error:action.message, successMsg:null}
 				}
 
-		case 'EDIT_BOOK_REQUEST_SUCCESS':
-		    const updatedState = currentState.booksList.books.map((book) => {
-					if(book._id === action.book._id){
-						return {...book, ...action.book};
+		case 'EDIT_SHELTER_REQUEST_SUCCESS':
+		    const updatedState = currentState.sheltersList.shelters.map((shelter) => {
+					if(shelter._id === action.shelter._id){
+						return {...shelter, ...action.shelter};
 					}
-					return book;
+					return shelter;
 				});
 				return {
-					...currentState, booksList: {books:updatedState, error:null, isFetching: false}, editBook:{showEditModal:true, bookToEdit:action.book, isFetching:false, error:null, successMsg:action.message}
+					...currentState, sheltersList: {shelters:updatedState, error:null, isFetching: false}, editShelter:{showEditModal:true, shelterToEdit:action.shelter, isFetching:false, error:null, successMsg:action.message}
 				}
 
-		case 'HANDLE_EDIT_BOOK_FORM_CHANGE':
+		case 'HANDLE_EDIT_SHELTER_FORM_CHANGE':
 		      return {
-						...currentState, booksList: {books:[...currentState.booksList.books], error:null, isFetching: false}, editBook:{showEditModal:true, bookToEdit:currentState.editBook.bookToEdit, isFetching:false, error:null, successMsg:null}
+						...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null, isFetching: false}, editShelter:{showEditModal:true, shelterToEdit:currentState.editShelter.shelterToEdit, isFetching:false, error:null, successMsg:null}
 					}
 
     default:
@@ -112,9 +112,9 @@ export const booksReducer =  (currentState = INITIAL_STATE, action) => {
   }
 };
 
-// const books = (state = { }, action) => {
+// const shelters = (state = { }, action) => {
 //   switch (action.type) {
-//     case 'FETCH_BOOK_SUCCESS':
+//     case 'FETCH_SHELTER_SUCCESS':
 //       return {
 //         ...state,
 //         [action.reddit]: posts(state[action.reddit], action)
@@ -124,10 +124,10 @@ export const booksReducer =  (currentState = INITIAL_STATE, action) => {
 //   }
 // }
 
-export const bookReducer = (currentState = [], action) => {
+export const shelterReducer = (currentState = [], action) => {
   switch (action.type) {
-    case 'FETCH_BOOK_BY_ID_SUCCESS':
-      return action.book;
+    case 'FETCH_SHELTER_BY_ID_SUCCESS':
+      return action.shelter;
     default:
       return currentState;
   }

@@ -3,15 +3,15 @@ import mongoose from 'mongoose';
 import  Favourite from '../models/favourite.server.model';
 export const addFavourite = (req,res) => {
         console.log(req.body);
-        //Create a new instance of Book model
+        //Create a new instance of Shelter model
         const newFavourite = new Favourite();
-        newFavourite.book = req.body.id;
+        newFavourite.shelter = req.body.id;
         newFavourite.save((err,favourite) => {
           if(err){
           return res.json({'success':false,'message':'Some Error'});
           }
 
-          Favourite.findOne({'_id':favourite._id}).populate('book').exec((err,f) => {
+          Favourite.findOne({'_id':favourite._id}).populate('shelter').exec((err,f) => {
             if(err){
             return res.json({'success':false,'message':'Some Error'});
             }
@@ -23,7 +23,7 @@ export const addFavourite = (req,res) => {
 }
 
  export const getFavourites = (req,res,next) => {
-         Favourite.find().populate('book').exec((err,favourites) => {
+         Favourite.find().populate('shelter').exec((err,favourites) => {
            if(err){
            return res.json({'success':false,'message':'Some Error'});
            }
@@ -33,7 +33,7 @@ export const addFavourite = (req,res) => {
 }
 
 export const deleteFavourite = (req,res) => {
-  Favourite.findByIdAndRemove(req.params.id,(err,book) => {
+  Favourite.findByIdAndRemove(req.params.id,(err,shelter) => {
     if(err){
     return res.json({'success':false,'message':'Some Error','error':err});
     }

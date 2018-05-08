@@ -24,9 +24,9 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _bookServer = require('./routes/book.server.route');
+var _shelterServer = require('./routes/shelter.server.route');
 
-var _bookServer2 = _interopRequireDefault(_bookServer);
+var _shelterServer2 = _interopRequireDefault(_shelterServer);
 
 var _favouriteServer = require('./routes/favourite.server.route');
 
@@ -57,7 +57,7 @@ app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use(_bodyParser2.default.json());
 app.use((0, _morgan2.default)('dev'));
 
-app.use('/api/book', _bookServer2.default);
+app.use('/api/shelter', _shelterServer2.default);
 app.use('/api/favourite', _favouriteServer2.default);
 
 // The "catchall" handler: for any request that doesn't

@@ -48,10 +48,10 @@ class FavouritePage extends React.Component{
                     return (
                       <tr key={index}>
                         <td>{item._id}</td>
-                        <td>{item.book.title}</td>
-                        <td>{item.book.price}</td>
+                        <td>{item.shelter.title}</td>
+                        <td>{item.shelter.price}</td>
                         <td className="textCenter"><Button onClick={() => this.showDeleteModal(item)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
-                        <td><Link to={`book/${item.book._id}`}>View</Link></td>
+                        <td><Link to={`shelter/${item.shelter._id}`}>View</Link></td>
                       </tr>
                     );
                   })}
@@ -70,7 +70,7 @@ class FavouritePage extends React.Component{
             <Modal.Body>
             {deleteFav.favToDelete && !deleteFav.error && !deleteFav.isFetching &&
               <Alert bsStyle="warning">
-         Are you sure you want to delete this favourite <strong>{deleteFav.favToDelete.book.title} </strong> ?
+         Are you sure you want to delete this favourite <strong>{deleteFav.favToDelete.shelter.title} </strong> ?
        </Alert>
             }
             {deleteFav.favToDelete && deleteFav.error &&
@@ -87,7 +87,7 @@ class FavouritePage extends React.Component{
 
             {!deleteFav.favToDelete && !deleteFav.error && deleteFav.successMsg &&
               <Alert bsStyle="success">
-         Book <strong>{deleteFav.successMsg} </strong>
+         Shelter <strong>{deleteFav.successMsg} </strong>
        </Alert>
             }
             </Modal.Body>

@@ -1,11 +1,11 @@
-// ./src/components/book/BookForm.js
+// ./src/components/shelter/ShelterForm.js
 import React from 'react';
 import { FormGroup,ControlLabel,FormControl,Button,Glyphicon } from 'react-bootstrap';
 
-const BookEditForm = (props) => {
+const ShelterEditForm = (props) => {
   return (
     <form
-    className="form form-horizontal" id="bookEditForm" onChange={props.handleChange} onSubmit={props.submitEditBook}
+    className="form form-horizontal" id="shelterEditForm" onChange={props.handleChange} onSubmit={props.submitEditShelter}
     >
 
     <div className="row">
@@ -14,22 +14,22 @@ const BookEditForm = (props) => {
           <ControlLabel>Title: </ControlLabel>
           <FormControl
             type="hidden"
-            name="BookId" defaultValue={props.bookData._id}
+            name="ShelterId" defaultValue={props.shelterData._id}
              />
              <FormControl
                type="hidden"
-               name="filePath" defaultValue={props.bookData.filePath}
+               name="filePath" defaultValue={props.shelterData.filePath}
                 />
             <FormControl
               type="text" placeholder="Enter title"
-              name="title" defaultValue={props.bookData.title}
+              name="title" defaultValue={props.shelterData.title}
                />
         </FormGroup>
         </div>
       <div className="col-md-6">
         <FormGroup >
         <ControlLabel>PDF File: </ControlLabel>
-        <center><a target="__blank" href={`//localhost:8080/${props.bookData.fileName}`}><Button bsStyle="warning" bsSize="xsmall"><Glyphicon glyph="file" />View Pdf</Button></a></center>
+        <center><a target="__blank" href={`//localhost:8080/${props.shelterData.fileName}`}><Button bsStyle="warning" bsSize="xsmall"><Glyphicon glyph="file" />View Pdf</Button></a></center>
         <input className="form-control"
             type="file"
             name="file"
@@ -42,7 +42,7 @@ const BookEditForm = (props) => {
             <FormControl
               type="text"
               name="author"
-               placeholder="Enter author" defaultValue={props.bookData.author}/>
+               placeholder="Enter author" defaultValue={props.shelterData.author}/>
         </FormGroup>
      </div>
      <div className="col-md-6">
@@ -51,7 +51,7 @@ const BookEditForm = (props) => {
             <FormControl
               type="number"
               name="price"
-              placeholder="Enter price" defaultValue={props.bookData.price} />
+              placeholder="Enter price" defaultValue={props.shelterData.price} />
           </FormGroup>
        </div>
        <div className="col-md-6">
@@ -60,7 +60,7 @@ const BookEditForm = (props) => {
             <FormControl
               type="text"
               name="year"
-              placeholder="Enter publication year" defaultValue={props.bookData.year} />
+              placeholder="Enter publication year" defaultValue={props.shelterData.year} />
           </FormGroup>
         </div>
     </div>
@@ -72,4 +72,4 @@ const BookEditForm = (props) => {
   );
 };
 
-export default BookEditForm;
+export default ShelterEditForm;

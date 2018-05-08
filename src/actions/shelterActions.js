@@ -1,44 +1,44 @@
-// ./src/actions/bookActions.js
+// ./src/actions/shelterActions.js
 import Axios from 'axios';
 
 //API URL
 const apiUrl = 'http://localhost:3000/api/';
 
-export const hideBookMessage = () => {
+export const hideShelterMessage = () => {
   return {
-    type:'HIDE_BOOK_MESSAGE'
+    type:'HIDE_SHELTER_MESSAGE'
   }
 }
 
-export const fetchBooksRequest = () => {
+export const fetchSheltersRequest = () => {
   return {
-    type:'FETCH_BOOK_REQUEST'
+    type:'FETCH_SHELTER_REQUEST'
   }
 }
 
 
 //Sync action
-export const fetchBooksSuccess = (books) => {
+export const fetchSheltersSuccess = (shelters) => {
   return {
-    type: 'FETCH_BOOK_SUCCESS',
-    books: books,
+    type: 'FETCH_SHELTER_SUCCESS',
+    shelters: shelters,
     receivedAt: Date.now
   }
 };
 
 //Async action
-export const fetchBooks = () => {
+export const fetchShelters = () => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return (dispatch) => {
 
-    dispatch(fetchBooksRequest());
+    dispatch(fetchSheltersRequest());
     // Returns a promise
-    return Axios.get(apiUrl + 'book')
+    return Axios.get(apiUrl + 'shelter')
                 .then(response => {
                   // dispatch another action
                   // to consume data
-                  dispatch(fetchBooksSuccess(response.data.books))
+                  dispatch(fetchSheltersSuccess(response.data.shelters))
                 })
                 .then(error => {
                   throw(error);
@@ -48,39 +48,39 @@ export const fetchBooks = () => {
 
 
 // Sync action
-export const createBookSuccess = (book) => {
+export const createShelterSuccess = (shelter) => {
   return {
-    type: 'CREATE_BOOK_SUCCESS',
-    book
+    type: 'CREATE_SHELTER_SUCCESS',
+    shelter
   }
 }
 
-export const createBookRequest = () => {
+export const createShelterRequest = () => {
   return {
-    type:'CREATE_BOOK_REQUEST'
+    type:'CREATE_SHELTER_REQUEST'
   }
 }
 
-export const createBookFailed = (message) => {
+export const createShelterFailed = (message) => {
   return {
-    type:'CREATE_BOOK_REQUEST_FAILED',
+    type:'CREATE_SHELTER_REQUEST_FAILED',
     message
   }
 }
 
-export const createBook = (book) => {
+export const createShelter = (shelter) => {
   //Return action
   return (dispatch) => {
-       dispatch(createBookRequest());
-    return Axios.post(apiUrl + 'book', book)
+       dispatch(createShelterRequest());
+    return Axios.post(apiUrl + 'shelter', shelter)
                 .then(response => {
                   if(response.data.success){
                   // dispatch a synchronus action
                   // to handle data
-                  dispatch(createBookSuccess(response.data.book));
+                  dispatch(createShelterSuccess(response.data.shelter));
                 }
                 else{
-                  dispatch(createBookFailed(response.data.message));
+                  dispatch(createShelterFailed(response.data.message));
                 }
                 })
                 .then(error => {
@@ -92,21 +92,21 @@ export const createBook = (book) => {
 
 
 //Sync action
-export const fetchBookByIdSuccess = (book) => {
+export const fetchShelterByIdSuccess = (shelter) => {
   return {
-    type: 'FETCH_BOOK_BY_ID_SUCCESS',
-    book
+    type: 'FETCH_SHELTER_BY_ID_SUCCESS',
+    shelter
   }
 }
 
 //Async action
-export const fetchBookById = (bookId) => {
+export const fetchShelterById = (shelterId) => {
   //Return action
   return (dispatch) => {
-    return Axios.get(apiUrl + 'book/' + bookId)
+    return Axios.get(apiUrl + 'shelter/' + shelterId)
                 .then(response => {
                   //Handle data with sync action
-                  dispatch(fetchBookByIdSuccess(response.data.book[0]))
+                  dispatch(fetchShelterByIdSuccess(response.data.shelter[0]))
                 })
                 .catch(error => {
                   throw(error);
@@ -115,11 +115,11 @@ export const fetchBookById = (bookId) => {
 };
 
 
-//sync action to show Delete book model
-export const showDeleteModal = (bookToDelete) => {
+//sync action to show Delete shelter model
+export const showDeleteModal = (shelterToDelete) => {
   return{
     type: 'SHOW_DELETE_MODAL',
-    bookToDelete
+    shelterToDelete
   }
 }
 
@@ -129,52 +129,52 @@ export const hideDeleteModal = () => {
   }
 }
 
-export const confirmDeleteBookRequest = (bookToDelete) => {
+export const confirmDeleteShelterRequest = (shelterToDelete) => {
   return{
-    type: 'CONFIRM_DELETE_BOOK_REQUEST',
-    bookToDelete
+    type: 'CONFIRM_DELETE_SHELTER_REQUEST',
+    shelterToDelete
   }
 }
 
-export const confirmDeleteBookRequestSuccess = (message, deletedBookId) => {
+export const confirmDeleteShelterRequestSuccess = (message, deletedShelterId) => {
   return{
-    type: 'CONFIRM_DELETE_BOOK_REQUEST_SUCCESS',
+    type: 'CONFIRM_DELETE_SHELTER_REQUEST_SUCCESS',
     message:message,
-    deletedBookId:deletedBookId
+    deletedShelterId:deletedShelterId
   }
 }
 
-export const confirmDeleteBookRequestFailed = (message) => {
+export const confirmDeleteShelterRequestFailed = (message) => {
   return{
-    type: 'CONFIRM_DELETE_BOOK_REQUEST_FAILED',
+    type: 'CONFIRM_DELETE_SHELTER_REQUEST_FAILED',
     message
   }
 }
 
-export const confirmDeleteBook = (bookToDelete) => {
+export const confirmDeleteShelter = (shelterToDelete) => {
     return (dispatch) => {
-      dispatch(confirmDeleteBookRequest(bookToDelete));
-      return Axios.delete(apiUrl + 'book/' + bookToDelete._id)
+      dispatch(confirmDeleteShelterRequest(shelterToDelete));
+      return Axios.delete(apiUrl + 'shelter/' + shelterToDelete._id)
                   .then(response => {console.log(response);
                     if(response.data.success){
                       //dispatch another action to consume data
-                       dispatch(confirmDeleteBookRequestSuccess(response.data.message,bookToDelete._id));
+                       dispatch(confirmDeleteShelterRequestSuccess(response.data.message,shelterToDelete._id));
                     }
                     else{
                       //dispatch another action to consume data
-                       dispatch(confirmDeleteBookRequestFailed(response.data.message));
+                       dispatch(confirmDeleteShelterRequestFailed(response.data.message));
                     }
                   })
                   .catch(error => {
-                     dispatch(confirmDeleteBookRequestFailed(error));
+                     dispatch(confirmDeleteShelterRequestFailed(error));
                   })
     }
 }
 
-export const showEditModal = (bookToEdit) => {
+export const showEditModal = (shelterToEdit) => {
   return{
     type: 'SHOW_EDIT_MODAL',
-    bookToEdit
+    shelterToEdit
   }
 }
 
@@ -184,48 +184,48 @@ export const hideEditModal = () => {
   }
 }
 
-export const editBookRequest = (bookToEdit) => {
+export const editShelterRequest = (shelterToEdit) => {
   return{
-    type: 'EDIT_BOOK_REQUEST',
-    bookToEdit
+    type: 'EDIT_SHELTER_REQUEST',
+    shelterToEdit
   }
 }
 
-export const editBookRequestSuccess = (book,message) => {
+export const editShelterRequestSuccess = (shelter,message) => {
   return{
-    type: 'EDIT_BOOK_REQUEST_SUCCESS',
-    book:book,
+    type: 'EDIT_SHELTER_REQUEST_SUCCESS',
+    shelter:shelter,
     message:message
   }
 }
 
-export const editBookRequestFailed = (message) => {
+export const editShelterRequestFailed = (message) => {
   return{
-    type:'EDIT_BOOK_REQUEST_FAILED',
+    type:'EDIT_SHELTER_REQUEST_FAILED',
     message
   }
 }
 
-export const editBook = (bookToEdit) => {
+export const editShelter = (shelterToEdit) => {
   return (dispatch) => {
-    dispatch(editBookRequest(bookToEdit));
-    return Axios.put(apiUrl +'book', bookToEdit)
+    dispatch(editShelterRequest(shelterToEdit));
+    return Axios.put(apiUrl +'shelter', shelterToEdit)
                 .then(response => {
                   if(response.data.success){
-                    dispatch(editBookRequestSuccess(response.data.book,response.data.message));
+                    dispatch(editShelterRequestSuccess(response.data.shelter,response.data.message));
                   }
                   else{
-                    dispatch(editBookRequestFailed(response.data.message));
+                    dispatch(editShelterRequestFailed(response.data.message));
                   }
                 })
                .catch(err => {
-                  dispatch(editBookRequestFailed(err));console.log(err);
+                  dispatch(editShelterRequestFailed(err));console.log(err);
                })
   }
 }
 
-export const handleEditBookFormChange = () => {
+export const handleEditShelterFormChange = () => {
   return{
-    type:'HANDLE_EDIT_BOOK_FORM_CHANGE'
+    type:'HANDLE_EDIT_SHELTER_FORM_CHANGE'
   }
 }

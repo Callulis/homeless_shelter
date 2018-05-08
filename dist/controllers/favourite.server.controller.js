@@ -17,15 +17,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const addFavourite = exports.addFavourite = (req, res) => {
   console.log(req.body);
-  //Create a new instance of Book model
+  //Create a new instance of Shelter model
   const newFavourite = new _favouriteServer2.default();
-  newFavourite.book = req.body.id;
+  newFavourite.shelter = req.body.id;
   newFavourite.save((err, favourite) => {
     if (err) {
       return res.json({ 'success': false, 'message': 'Some Error' });
     }
 
-    _favouriteServer2.default.findOne({ '_id': favourite._id }).populate('book').exec((err, f) => {
+    _favouriteServer2.default.findOne({ '_id': favourite._id }).populate('shelter').exec((err, f) => {
       if (err) {
         return res.json({ 'success': false, 'message': 'Some Error' });
       }
@@ -36,7 +36,7 @@ const addFavourite = exports.addFavourite = (req, res) => {
 };
 //import models
 const getFavourites = exports.getFavourites = (req, res, next) => {
-  _favouriteServer2.default.find().populate('book').exec((err, favourites) => {
+  _favouriteServer2.default.find().populate('shelter').exec((err, favourites) => {
     if (err) {
       return res.json({ 'success': false, 'message': 'Some Error' });
     }
@@ -46,7 +46,7 @@ const getFavourites = exports.getFavourites = (req, res, next) => {
 };
 
 const deleteFavourite = exports.deleteFavourite = (req, res) => {
-  _favouriteServer2.default.findByIdAndRemove(req.params.id, (err, book) => {
+  _favouriteServer2.default.findByIdAndRemove(req.params.id, (err, shelter) => {
     if (err) {
       return res.json({ 'success': false, 'message': 'Some Error', 'error': err });
     }

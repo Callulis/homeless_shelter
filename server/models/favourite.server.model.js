@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Book from './book.server.model';
+import Shelter from './shelter.server.model';
 let Schema = mongoose.Schema({
         createdAt: {
             type:Date,
@@ -7,7 +7,7 @@ let Schema = mongoose.Schema({
         },
       book: {
         type:mongoose.Schema.ObjectId,
-        ref: 'Book'
+        ref: 'Shelter'
       }
 });
 

@@ -23,5 +23,5 @@ let Schema = _mongoose2.default.Schema({
     year: Number
 });
 
-exports.default = _mongoose2.default.model('Book', Schema);
-//# sourceMappingURL=book.server.model.js.map
+exports.default = _mongoose2.default.model('Shelter', Schema);
+//# sourceMappingURL=shelter.server.model.js.map

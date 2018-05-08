@@ -1,14 +1,14 @@
-.addBookBox{
+.addShelterBox{
   width: 80%;
   height: 100%;
   margin: 0 auto;
   border:1px solid green;
   padding: 10px 30px 10px 30px;
 }
-.addBookHeading{color: #EE6E73;text-decoration: underline;}
-.addBookBox .form-group{padding: 2px;}
+.addShelterHeading{color: #EE6E73;text-decoration: underline;}
+.addShelterBox .form-group{padding: 2px;}
 .textCenter{text-align: center;vertical-align: middle;}
-.bookDetail{
+.shelterDetail{
   width: 80%;
   height: 90%;
   margin: 0 auto;

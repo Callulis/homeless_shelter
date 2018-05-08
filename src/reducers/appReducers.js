@@ -1,13 +1,13 @@
 // ./src/reducers/appReducers.js
 const INITIAL_STATE = {
-  showAddBook: false
+  showAddShelter: false
 }
 
 const appReducer = (currentState = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'TOGGLE_ADD_BOOK':
+    case 'TOGGLE_ADD_SHELTER':
           return {
-            ...currentState,showAddBook: !currentState.showAddBook
+            ...currentState,showAddShelter: !currentState.showAddShelter
           }
 
 

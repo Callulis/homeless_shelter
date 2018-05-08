@@ -12,4 +12,4 @@ let Schema = mongoose.Schema({
         year: Number
 });
 
-export default mongoose.model('Book',Schema);
+export default mongoose.model('Shelter',Schema);

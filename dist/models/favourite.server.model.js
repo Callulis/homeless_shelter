@@ -8,9 +8,9 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _bookServer = require('./book.server.model');
+var _shelterServer = require('./shelter.server.model');
 
-var _bookServer2 = _interopRequireDefault(_bookServer);
+var _shelterServer2 = _interopRequireDefault(_shelterServer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19,9 +19,9 @@ let Schema = _mongoose2.default.Schema({
     type: Date,
     default: Date.now
   },
-  book: {
+  shelter: {
     type: _mongoose2.default.Schema.ObjectId,
-    ref: 'Book'
+    ref: 'Shelter'
   }
 });
 

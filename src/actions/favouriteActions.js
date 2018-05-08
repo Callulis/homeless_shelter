@@ -1,5 +1,5 @@
 // ./src/actions/favouriteActions.js
-// ./src/actions/bookActions.js
+// ./src/actions/shelterActions.js
 import Axios from 'axios';
 
 //API URL
@@ -75,7 +75,7 @@ export const fetchFavourite = () => {
   }
 }
 
-//sync action to show Delete book model
+//sync action to show Delete shelter model
 export const showDeleteModal = (favToDelete) => {
   return{
     type: 'SHOW_DELETE_MODAL',

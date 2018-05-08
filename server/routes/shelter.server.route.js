@@ -1,5 +1,5 @@
 import express from 'express';
-import * as  bookController from '../controllers/book.server.controller';
+import * as  shelterController from '../controllers/shelter.server.controller';
 
 
 const router = express.Router();
@@ -19,14 +19,14 @@ const router = express.Router();
 // var upload = multer({ storage: storage }).single('file');
 
 router.route('/')
-      .get(bookController.getBooks)
-      .post(bookController.addBook)
-      .put(bookController.editBook);
+      .get(shelterController.getShelters)
+      .post(shelterController.addShelter)
+      .put(shelterController.editShelter);
 
 
 router.route('/:id')
-      .get(bookController.getBookById)
-      .delete(bookController.deleteBook);
+      .get(shelterController.getShelterById)
+      .delete(shelterController.deleteShelter);
 
 
 

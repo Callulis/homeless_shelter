@@ -1,23 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import BookDetails from './BookDetails';
+import ShelterDetails from './ShelterDetails';
 
-import * as bookActions from '../../actions/bookActions';
+import * as shelterActions from '../../actions/shelterActions';
 import * as favouriteActions from '../../actions/favouriteActions';
 
-class BookDetailsPage extends React.Component{
+class ShelterDetailsPage extends React.Component{
   constructor(props, context){
     super(props, context);
     this.addToFavourite = this.addToFavourite.bind(this);
   }
 
   componentDidMount(){
-    this.props.mappedfetchBookById(this.props.params.id);
+    this.props.mappedfetchShelterById(this.props.params.id);
   }
 
-  addToFavourite(book){
+  addToFavourite(shelter){
      const item = {
-       id:this.props.mappedbook._id
+       id:this.props.mappedshelter._id
      }
      this.props.mappedaddToFavourite(item);
   }
@@ -25,8 +25,8 @@ class BookDetailsPage extends React.Component{
   render(){
     return(
       <div>
-     <h1>Book Details Page</h1>
-     <BookDetails book={this.props.mappedbook} addToFavourite={this.addToFavourite} favouritesData={this.props.mappedfavouriteItems}/>
+     <h1>Shelter Details Page</h1>
+     <ShelterDetails shelter={this.props.mappedshelter} addToFavourite={this.addToFavourite} favouritesData={this.props.mappedfavouriteItems}/>
       </div>
     );
   };
@@ -34,7 +34,7 @@ class BookDetailsPage extends React.Component{
 
 const mapStateToProps = (state,ownProps) => {
   return {
-     mappedbook: state.book,
+     mappedshelter: state.shelter,
      mappedfavouriteItems: state.favourite
   }
 }
@@ -43,9 +43,9 @@ const mapStateToProps = (state,ownProps) => {
      // This dispatch will trigger
      // the Ajax request we setup
      // in our actions
-     mappedfetchBookById: bookId => dispatch(bookActions.fetchBookById(bookId)),
+     mappedfetchShelterById: shelterId => dispatch(shelterActions.fetchShelterById(shelterId)),
      mappedaddToFavourite: item => dispatch(favouriteActions.addToFavourite(item))
    }
  }
 
- export default connect(mapStateToProps, mapDispatchToProps)(BookDetailsPage);
+ export default connect(mapStateToProps, mapDispatchToProps)(ShelterDetailsPage);
