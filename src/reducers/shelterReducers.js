@@ -25,10 +25,6 @@ export const sheltersReducer =  (currentState = INITIAL_STATE, action) => {
           return { ...currentState, sheltersList: {shelters:[...currentState.sheltersList.shelters], error:null,isFetching: true},newShelter:{shelter:null, error:null, isAdding:true}};
 
     case 'CREATE_SHELTER_SUCCESS':
-          //  const nextState = [
-          //    ...currentState,
-          //    Object.assign({}, action.shelter)
-          //  ];return { ...state, activePost:{...state.activePost, loading: true}};
           const nextState = { ...currentState, sheltersList:{shelters:[...currentState.sheltersList.shelters, action.shelter], isFetching:false},newShelter:{shelter:action.shelter, error:null, isAdding:false}}
       return nextState;
 
@@ -111,18 +107,6 @@ export const sheltersReducer =  (currentState = INITIAL_STATE, action) => {
 
   }
 };
-
-// const shelters = (state = { }, action) => {
-//   switch (action.type) {
-//     case 'FETCH_SHELTER_SUCCESS':
-//       return {
-//         ...state,
-//         [action.reddit]: posts(state[action.reddit], action)
-//       }
-//     default:
-//       return state
-//   }
-// }
 
 export const shelterReducer = (currentState = [], action) => {
   switch (action.type) {

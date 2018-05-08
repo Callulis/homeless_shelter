@@ -4,10 +4,11 @@ let Schema = mongoose.Schema({
             type:Date,
             default:Date.now
         },
-        title: String,
-        author: String,
-        price: Number,
-        year: Number
+        name: String,
+        management: String,
+        city: String,
+        state: String,
+        zip: Number
 });
 
 export default mongoose.model('Shelter',Schema);

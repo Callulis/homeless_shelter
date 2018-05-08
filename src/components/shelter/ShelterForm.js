@@ -11,38 +11,47 @@ const ShelterForm = (props) => {
     <div className="row">
     <div className="col-md-12">
     <FormGroup>
-          <ControlLabel>Title: </ControlLabel>
+          <ControlLabel>Name: </ControlLabel>
             <FormControl
-              type="text" placeholder="Enter title"
-              name="title"
+              type="text" placeholder="Enter name"
+              name="name"
                />
         </FormGroup>
         </div>
     <div className="col-md-12">
         <FormGroup>
-          <ControlLabel>Author: </ControlLabel>
+          <ControlLabel>Management: </ControlLabel>
             <FormControl
               type="text"
-              name="author"
-               placeholder="Enter author"/>
+              name="management"
+               placeholder="Enter management"/>
         </FormGroup>
      </div>
-     <div className="col-md-6">
+     <div className="col-md-4">
         <FormGroup>
-          <ControlLabel>Price: </ControlLabel>
-            <FormControl
-              type="number"
-              name="price"
-              placeholder="Enter price" />
-          </FormGroup>
-       </div>
-       <div className="col-md-6">
-        <FormGroup>
-          <ControlLabel>Publication Year: </ControlLabel>
+          <ControlLabel>City: </ControlLabel>
             <FormControl
               type="text"
-              name="year"
-              placeholder="Enter publication year" />
+              name="city"
+              placeholder="Enter city" />
+          </FormGroup>
+       </div>
+       <div className="col-md-4">
+        <FormGroup>
+          <ControlLabel>State: </ControlLabel>
+            <FormControl
+              type="text"
+              name="state"
+              placeholder="Enter state" />
+          </FormGroup>
+        </div>
+        <div className="col-md-4">
+        <FormGroup>
+          <ControlLabel>Zip: </ControlLabel>
+            <FormControl
+              type="Number"
+              name="zip"
+              placeholder="Enter zip" />
           </FormGroup>
         </div>
     </div>

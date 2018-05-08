@@ -37,8 +37,8 @@ class FavouritePage extends React.Component{
                   <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Title</th>
-                    <th>Price</th>
+                    <th>Name</th>
+                    <th>Management</th>
                     <th>Delete</th>
                     <th>View</th>
                   </tr>
@@ -48,8 +48,8 @@ class FavouritePage extends React.Component{
                     return (
                       <tr key={index}>
                         <td>{item._id}</td>
-                        <td>{item.shelter.title}</td>
-                        <td>{item.shelter.price}</td>
+                        <td>{item.shelter.name}</td>
+                        <td>{item.shelter.management}</td>
                         <td className="textCenter"><Button onClick={() => this.showDeleteModal(item)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
                         <td><Link to={`shelter/${item.shelter._id}`}>View</Link></td>
                       </tr>
@@ -70,7 +70,7 @@ class FavouritePage extends React.Component{
             <Modal.Body>
             {deleteFav.favToDelete && !deleteFav.error && !deleteFav.isFetching &&
               <Alert bsStyle="warning">
-         Are you sure you want to delete this favourite <strong>{deleteFav.favToDelete.shelter.title} </strong> ?
+         Are you sure you want to delete this favourite <strong>{deleteFav.favToDelete.shelter.name} </strong> ?
        </Alert>
             }
             {deleteFav.favToDelete && deleteFav.error &&

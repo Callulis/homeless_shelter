@@ -33,16 +33,18 @@ class ShelterPage extends React.Component {
   submitShelter(e){
     e.preventDefault();
     const form = document.getElementById('myForm');
-    if(form.title.value === '' || form.author.value === '' || form.price.value === '' || form.year.value === ''){
+    if(form.name.value === '' || form.management.value === '' || form.city.value === '' 
+            || form.state.value === '' || form.zip.value === ''){
       this.props.createShelterFailed('Fill all fields');
       return;
     }
 
     const data = new FormData();
-    data.append('title',form.title.value);
-    data.append('author',form.author.value);
-    data.append('price',form.price.value);
-    data.append('year',form.year.value);
+    data.append('name',form.name.value);
+    data.append('management',form.management.value);
+    data.append('city',form.city.value);
+    data.append('state',form.state.value);
+    data.append('zip',form.zip.value);
     this.props.createShelter(data);
     form.reset();
   }
@@ -75,7 +77,8 @@ class ShelterPage extends React.Component {
   submitEditShelter(e){
      e.preventDefault();
      const editForm = document.getElementById('shelterEditForm');
-     if(editForm.title.value === '' || editForm.author.value === '' || editForm.price.value === '' || editForm.year.value === ''){
+     if(editForm.name.value === '' || editForm.management.value === '' || editForm.city.value === '' 
+             || editForm.state.value === '' || editForm.zip.value === ''){
        this.props.mappededitShelterFailed('Fill all fields');
        return;
      }
@@ -83,14 +86,14 @@ class ShelterPage extends React.Component {
 
     const data = new FormData();
     data.append('_id',editForm.ShelterId.value);
-    data.append('title',editForm.title.value);
-    data.append('author',editForm.author.value);
-    data.append('price', editForm.price.value);
-    data.append('year',editForm.year.value);
+    data.append('name',editForm.name.value);
+    data.append('management',editForm.management.value);
+    data.append('city', editForm.city.value);
+    data.append('state',editForm.state.value);
+    data.append('zip',editForm.zip.value);
     this.props.mappededitShelter(data);
 
      }
-
   }
 
   handleEditChange(){
@@ -153,7 +156,7 @@ class ShelterPage extends React.Component {
 
           <table className="table sheltersTable">
           <thead>
-           <tr><th>Title</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">View</th></tr>
+           <tr><th>Name</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">View</th></tr>
           </thead>
           <tbody>
           {shelters.map((b,i) => <tr key={i}>

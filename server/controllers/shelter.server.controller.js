@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-import multer from 'multer';
-import fs from 'fs';
 //import models
 import  Shelter from '../models/shelter.server.model';
 import  Favourite from '../models/favourite.server.model';
@@ -53,7 +51,7 @@ export const deleteShelter = (req,res) => {
       if(err){
         return res.json({'success':false,'message':'Some error','error':err});
       }
-      return res.json({'success':true,'message':shelter.title+' deleted successfully'});
+      return res.json({'success':true,'message':shelter.name+' deleted successfully'});
     });
 
   });

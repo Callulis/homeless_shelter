@@ -15,10 +15,11 @@ let Schema = _mongoose2.default.Schema({
         type: Date,
         default: Date.now
     },
-    title: String,
-    author: String,
-    price: Number,
-    year: Number
+    name: String,
+    management: String,
+    city: String,
+    state: String, 
+    zip: Number
 });
 
 exports.default = _mongoose2.default.model('Shelter', Schema);

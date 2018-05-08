@@ -11,42 +11,51 @@ const ShelterEditForm = (props) => {
     <div className="row">
     <div className="col-md-12">
     <FormGroup>
-          <ControlLabel>Title: </ControlLabel>
+          <ControlLabel>Name: </ControlLabel>
           <FormControl
             type="hidden"
             name="ShelterId" defaultValue={props.shelterData._id}
              />
             <FormControl
-              type="text" placeholder="Enter title"
-              name="title" defaultValue={props.shelterData.title}
+              type="text" placeholder="Enter name"
+              name="name" defaultValue={props.shelterData.name}
                />
         </FormGroup>
         </div>
-    <div className="col-md-6">
+    <div className="col-md-12">
         <FormGroup>
-          <ControlLabel>Author: </ControlLabel>
+          <ControlLabel>Management: </ControlLabel>
             <FormControl
               type="text"
-              name="author"
-               placeholder="Enter author" defaultValue={props.shelterData.author}/>
+              name="management"
+               placeholder="Enter management" defaultValue={props.shelterData.management}/>
         </FormGroup>
      </div>
-     <div className="col-md-6">
+     <div className="col-md-4">
         <FormGroup>
-          <ControlLabel>Price: </ControlLabel>
-            <FormControl
-              type="number"
-              name="price"
-              placeholder="Enter price" defaultValue={props.shelterData.price} />
-          </FormGroup>
-       </div>
-       <div className="col-md-6">
-        <FormGroup>
-          <ControlLabel>Publication Year: </ControlLabel>
+          <ControlLabel>City: </ControlLabel>
             <FormControl
               type="text"
-              name="year"
-              placeholder="Enter publication year" defaultValue={props.shelterData.year} />
+              name="city"
+              placeholder="Enter city" defaultValue={props.shelterData.city} />
+          </FormGroup>
+       </div>
+       <div className="col-md-4">
+        <FormGroup>
+          <ControlLabel>State: </ControlLabel>
+            <FormControl
+              type="text"
+              name="state"
+              placeholder="Enter state" defaultValue={props.shelterData.state} />
+          </FormGroup>
+        </div>
+        <div className="col-md-4s">
+        <FormGroup>
+          <ControlLabel>Zip: </ControlLabel>
+            <FormControl
+              type="Number"
+              name="zip"
+              placeholder="Enter zip" defaultValue={props.shelterData.zip} />
           </FormGroup>
         </div>
     </div>

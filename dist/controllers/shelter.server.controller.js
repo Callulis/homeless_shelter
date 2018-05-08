@@ -9,10 +9,6 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _multer = require('multer');
-
-var _multer2 = _interopRequireDefault(_multer);
-
 var _shelterServer = require('../models/shelter.server.model');
 
 var _shelterServer2 = _interopRequireDefault(_shelterServer);
@@ -69,7 +65,7 @@ const deleteShelter = exports.deleteShelter = (req, res) => {
       if (err) {
         return res.json({ 'success': false, 'message': 'Some error', 'error': err });
       }
-      return res.json({ 'success': true, 'message': shelter.title + ' deleted successfully' });
+      return res.json({ 'success': true, 'message': shelter.name + ' deleted successfully' });
     });
   });
 };
