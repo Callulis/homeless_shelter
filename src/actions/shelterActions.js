@@ -2,7 +2,8 @@
 import Axios from 'axios';
 
 //API URL
-const apiUrl = 'http://localhost:3000/api/';
+//API URL
+const apiUrl = 'https://api.mlab.com/api/1/databases?apiKey=oKr0Uav4IgVTRXduUKvG3T6KvI-_gvv0';
 
 export const hideShelterMessage = () => {
   return {

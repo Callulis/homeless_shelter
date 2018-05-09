@@ -9,7 +9,7 @@ import shelterRoutes from './routes/shelter.server.route';
 import favouriteRoutes from './routes/favourite.server.route';
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/myapp', {
+mongoose.connect('mongodb://chris:password@ds145380.mlab.com:45380/shelter-posts', {
   useMongoClient: true,
 });
 
