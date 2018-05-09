@@ -35,7 +35,7 @@ export const fetchShelters = () => {
 
     dispatch(fetchSheltersRequest());
     // Returns a promise
-    return Axios.get(apiUrl + 'shelter')
+    return Axios.get(apiUrl)
                 .then(response => {
                   // dispatch another action
                   // to consume data
