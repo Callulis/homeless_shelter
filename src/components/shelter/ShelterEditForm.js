@@ -49,13 +49,22 @@ const ShelterEditForm = (props) => {
               placeholder="Enter state" defaultValue={props.shelterData.state} />
           </FormGroup>
         </div>
-        <div className="col-md-4s">
+        <div className="col-md-4">
         <FormGroup>
           <ControlLabel>Zip: </ControlLabel>
             <FormControl
               type="Number"
               name="zip"
               placeholder="Enter zip" defaultValue={props.shelterData.zip} />
+          </FormGroup>
+        </div>
+        <div className="col-md-12">
+        <FormGroup>
+          <ControlLabel>Comment: </ControlLabel>
+            <FormControl
+              type="textarea"
+              name="comment"
+              placeholder="Enter comment" defaultValue={props.shelterData.comment} />
           </FormGroup>
         </div>
     </div>

@@ -34,7 +34,7 @@ class ShelterPage extends React.Component {
     e.preventDefault();
     const form = document.getElementById('myForm');
     if(form.name.value === '' || form.management.value === '' || form.city.value === '' 
-            || form.state.value === '' || form.zip.value === ''){
+            || form.state.value === '' || form.zip.value === '' || form.comment.value === ''){
       this.props.createShelterFailed('Fill all fields');
       return;
     }
@@ -45,6 +45,7 @@ class ShelterPage extends React.Component {
     data.append('city',form.city.value);
     data.append('state',form.state.value);
     data.append('zip',form.zip.value);
+    data.append('comment', form.comment.value);
     this.props.createShelter(data);
     form.reset();
   }
@@ -78,21 +79,19 @@ class ShelterPage extends React.Component {
      e.preventDefault();
      const editForm = document.getElementById('shelterEditForm');
      if(editForm.name.value === '' || editForm.management.value === '' || editForm.city.value === '' 
-             || editForm.state.value === '' || editForm.zip.value === ''){
+             || editForm.state.value === '' || editForm.zip.value === '' || editForm.comment.value === ''){
        this.props.mappededitShelterFailed('Fill all fields');
        return;
-     }
-     else{
-
-    const data = new FormData();
-    data.append('_id',editForm.ShelterId.value);
-    data.append('name',editForm.name.value);
-    data.append('management',editForm.management.value);
-    data.append('city', editForm.city.value);
-    data.append('state',editForm.state.value);
-    data.append('zip',editForm.zip.value);
-    this.props.mappededitShelter(data);
-
+     } else {
+        const data = new FormData();
+        data.append('_id',editForm.ShelterId.value);
+        data.append('name',editForm.name.value);
+        data.append('management',editForm.management.value);
+        data.append('city', editForm.city.value);
+        data.append('state',editForm.state.value);
+        data.append('zip',editForm.zip.value);
+        data.append('comment',editForm.comment.value);
+        this.props.mappededitShelter(data);
      }
   }
 
@@ -156,11 +155,16 @@ class ShelterPage extends React.Component {
 
           <table className="table sheltersTable">
           <thead>
-           <tr><th>Name</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">View</th></tr>
+          <tr><th>Name</th>
+          <th>Comment</th>
+          <th className="textCenter">Edit</th>
+          <th className="textCenter">Delete</th>
+          <th className="textCenter">View</th></tr>
           </thead>
           <tbody>
           {shelters.map((b,i) => <tr key={i}>
           <td>{b.title}</td>
+          <td>{b.comment}</td>
            <td className="textCenter"><Button onClick={() => this.showEditModal(b)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
            <td className="textCenter"><Button onClick={() => this.showDeleteModal(b)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
            <td className="textCenter"><Link to={`/shelter/${b._id}`}>View Details</Link> </td>
@@ -287,9 +291,5 @@ const mapDispatchToProps = (dispatch) => {
     mappededitShelterFormChanged: () => dispatch(shelterActions.handleEditShelterFormChange())
   }
 }
-
-// ShelterPage.propTypes = {
-//   text: PropTypes.string.isRequired,
-// };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShelterPage);

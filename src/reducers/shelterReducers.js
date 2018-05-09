@@ -1,22 +1,22 @@
 // ./src/reducers/shelterReducers.js
 
 const INITIAL_STATE = { sheltersList: {shelters: [], error:null, isFetching: false},
-							newShelter:{shelter:null, error: null, isAdding: false},
-							deleteShelter:{
-								showDeleteModal: false,
-							  shelterToDelete: null,
-							  isFetching: false,
-							  error: null,
-							  successMsg:null
-							},
-							editShelter:{
-									showEditModal: false,
-								  shelterToEdit: null,
-								  isFetching: false,
-								  error: null,
-								  successMsg:null
-								}
-						};
+    newShelter:{shelter:null, error: null, isAdding: false},
+    deleteShelter:{
+        showDeleteModal: false,
+        shelterToDelete: null,
+        isFetching: false,
+        error: null,
+        successMsg:null
+    },
+    editShelter:{
+        showEditModal: false,
+        shelterToEdit: null,
+        isFetching: false,
+        error: null,
+        successMsg:null
+    }
+};
 
 // For handling array of shelters
 export const sheltersReducer =  (currentState = INITIAL_STATE, action) => {

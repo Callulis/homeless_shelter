@@ -16,6 +16,7 @@ render(){
             <li><strong>City: </strong> {b.city}</li>
             <li><strong>State: </strong> {b.state} </li>
             <li><strong>Zip: </strong> {b.zip} </li>
+            <li><strong>Comment: </strong> {b.comment} </li>
             <br/>
             {isFetching && newFavourite == null &&
               <h3>Adding to favourites...</h3>

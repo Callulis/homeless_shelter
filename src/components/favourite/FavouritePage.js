@@ -39,6 +39,7 @@ class FavouritePage extends React.Component{
                     <th>Id</th>
                     <th>Name</th>
                     <th>Management</th>
+                    <th>Comment</th>
                     <th>Delete</th>
                     <th>View</th>
                   </tr>
@@ -50,6 +51,7 @@ class FavouritePage extends React.Component{
                         <td>{item._id}</td>
                         <td>{item.shelter.name}</td>
                         <td>{item.shelter.management}</td>
+                        <td>{item.shelter.comment}</td>
                         <td className="textCenter"><Button onClick={() => this.showDeleteModal(item)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
                         <td><Link to={`shelter/${item.shelter._id}`}>View</Link></td>
                       </tr>

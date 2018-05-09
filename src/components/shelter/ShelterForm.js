@@ -54,6 +54,15 @@ const ShelterForm = (props) => {
               placeholder="Enter zip" />
           </FormGroup>
         </div>
+        <div className="col-md-12">
+        <FormGroup>
+          <ControlLabel>Comment: </ControlLabel>
+            <FormControl
+              type="textarea"
+              name="comment"
+              placeholder="Enter comment"/>
+          </FormGroup>
+        </div>
     </div>
 
         <FormGroup>

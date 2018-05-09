@@ -8,7 +8,8 @@ let Schema = mongoose.Schema({
         management: String,
         city: String,
         state: String,
-        zip: Number
+        zip: Number,
+        comment: String
 });
 
 export default mongoose.model('Shelter',Schema);

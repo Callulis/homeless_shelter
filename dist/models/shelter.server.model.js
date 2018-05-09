@@ -19,7 +19,8 @@ let Schema = _mongoose2.default.Schema({
     management: String,
     city: String,
     state: String, 
-    zip: Number
+    zip: Number,
+    comment: String
 });
 
 exports.default = _mongoose2.default.model('Shelter', Schema);
