@@ -8,6 +8,10 @@ import mongoose from 'mongoose';
 import shelterRoutes from './routes/shelter.server.route';
 import favouriteRoutes from './routes/favourite.server.route';
 
+var cors = require('cors')
+
+app.use(cors()) // Use this after the variable declaration
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://chris:password@ds145380.mlab.com:45380/shelter-posts', {
   useMongoClient: true,
