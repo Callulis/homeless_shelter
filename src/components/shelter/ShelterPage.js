@@ -165,6 +165,7 @@ class ShelterPage extends React.Component {
           </thead>
           <tbody>
           
+          <tr>
           <td>{b.title}</td>
           <td>{b.comment}</td>
            <td className="textCenter"><Button onClick={() => this.showEditModal(b)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
