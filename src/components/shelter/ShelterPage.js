@@ -124,9 +124,11 @@ class ShelterPage extends React.Component {
       shelterAddMessage = error;
       ShelterMessageStyle ='danger';
     }
+    /*
     if (isEmpty && isFetching ) {
       return <h2><i>Loading...</i></h2>
     }
+    */
     if (!shelter && !isAdding && !error) {
       shelterAddMessage = null;
     }
