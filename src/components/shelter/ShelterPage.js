@@ -164,7 +164,7 @@ class ShelterPage extends React.Component {
           <th className="textCenter">View</th></tr>
           </thead>
           <tbody>
-          {shelters.map((b,i) => <tr key={i}>
+          //{shelters.map((b,i) => <tr key={i}>
           <td>{b.title}</td>
           <td>{b.comment}</td>
            <td className="textCenter"><Button onClick={() => this.showEditModal(b)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
