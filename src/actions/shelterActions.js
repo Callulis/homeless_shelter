@@ -39,7 +39,7 @@ export const fetchShelters = () => {
                 .then(response => {
                   // dispatch another action
                   // to consume data
-                  dispatch(fetchSheltersSuccess(response.data.shelters))
+                  dispatch(fetchSheltersSuccess(response.name))
                 })
                 .then(error => {
                   throw(error);
