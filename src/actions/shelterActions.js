@@ -34,7 +34,7 @@ export const fetchShelters = () => {
 
     dispatch(fetchSheltersRequest());
     // Returns a promise
-    return Axios.get("https://api.mlab.com/api/1/databases?apiKey=5iZnnK1-BqhO9dXaHevqs9vYKLQjSOMo" + 'shelter')
+    return Axios.get("https://api.mlab.com/api/1/databases" + '/shelter')
                 .then(response => {
                   // dispatch another action
                   // to consume data

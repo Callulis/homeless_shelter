@@ -151,7 +151,27 @@ class ShelterPage extends React.Component {
 
       <div className="row">
           <div className="col-md-12">
+          <h3>Shelter Posts</h3>
 
+          <table className="table sheltersTable">
+          <thead>
+          <tr><th>Name</th>
+          <th>Comment</th>
+          <th className="textCenter">Edit</th>
+          <th className="textCenter">Delete</th>
+          <th className="textCenter">View</th></tr>
+          </thead>
+          <tbody>
+          {shelters.map((b,i) => <tr key={i}>
+          <td>{b.title}</td>
+          <td>{b.comment}</td>
+           <td className="textCenter"><Button onClick={() => this.showEditModal(b)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
+           <td className="textCenter"><Button onClick={() => this.showDeleteModal(b)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
+           <td className="textCenter"><Link to={`/shelter/${b._id}`}>View Details</Link> </td>
+           </tr> )}
+          </tbody>
+          </table>
+          </div>
 
       </div>
       <Modal
