@@ -41,6 +41,7 @@
   "devDependencies": {
     "babel-preset-es2015-node6": "^0.4.0",
     "bootstrap": "^3.3.7",
+    "http-proxy-middleware": "^0.18.0",
     "nodemon": "^1.11.0"
   },
   "homepage": "https://homeless-shelter-final.herokuapp.com/"

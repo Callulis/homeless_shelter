@@ -32,7 +32,7 @@ export const addToFavourite = (item) => {
   //Return action
   return (dispatch) => {
         dispatch(addToFavouriteRequest());
-    return Axios.post(apiUrl + 'favourite', item)
+    return Axios.post(apiUrl)
                 .then(response => {
                   if(response.data.success){
                   //Handle date with sync action
