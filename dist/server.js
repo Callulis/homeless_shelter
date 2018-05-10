@@ -35,7 +35,7 @@ var _favouriteServer2 = _interopRequireDefault(_favouriteServer);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _mongoose2.default.Promise = global.Promise;
-_mongoose2.default.connect('mongodb://chris:password>@ds145380.mlab.com:45380/shelter-posts', {
+_mongoose2.default.connect('mongodb://chris:password@ds145380.mlab.com:45380/shelter-posts', {
   useMongoClient: true
 });
 
