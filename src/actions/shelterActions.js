@@ -2,7 +2,7 @@
 import Axios from 'axios';
 
 //API URL
-`const apiUrl = 'http://localhost:3000/api/';`
+const apiUrl = 'https://api.mlab.com/api/1/databases?apiKey=5iZnnK1-BqhO9dXaHevqs9vYKLQjSOMo';
 
 export const hideShelterMessage = () => {
   return {
@@ -34,7 +34,7 @@ export const fetchShelters = () => {
 
     dispatch(fetchSheltersRequest());
     // Returns a promise
-    return Axios.get(apiUrl + 'shelter')
+    return Axios.get("https://api.mlab.com/api/1/databases?apiKey=5iZnnK1-BqhO9dXaHevqs9vYKLQjSOMo" + 'shelter')
                 .then(response => {
                   // dispatch another action
                   // to consume data
