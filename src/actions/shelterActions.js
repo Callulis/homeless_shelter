@@ -35,7 +35,7 @@ export const fetchShelters = () => {
 
     dispatch(fetchSheltersRequest());
     // Returns a promise
-    return Axios.get(apiUrl)
+    return Axios.get("https://api.mlab.com/api/1/databases/shelter-posts/collections/shelter?apiKey=5iZnnK1-BqhO9dXaHevqs9vYKLQjSOMo")
                 .then(response => {
                   // dispatch another action
                   // to consume data
@@ -73,7 +73,7 @@ export const createShelter = (shelter) => {
   //Return action
   return (dispatch) => {
        dispatch(createShelterRequest());
-    return Axios.post(apiUrl + 'shelter', shelter)
+    return Axios.post("https://api.mlab.com/api/1/databases/shelter-posts/collections/shelter?apiKey=5iZnnK1-BqhO9dXaHevqs9vYKLQjSOMo", shelter)
                 .then(response => {
                   if(response.data.success){
                   // dispatch a synchronus action

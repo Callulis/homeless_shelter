@@ -32,7 +32,7 @@ export const addToFavourite = (item) => {
   //Return action
   return (dispatch) => {
         dispatch(addToFavouriteRequest());
-    return Axios.post(apiUrl)
+    return Axios.post("https://api.mlab.com/api/1/databases/shelter-posts/collections/shelter/favourite?apiKey=5iZnnK1-BqhO9dXaHevqs9vYKLQjSOMo")
                 .then(response => {
                   if(response.data.success){
                   //Handle date with sync action
