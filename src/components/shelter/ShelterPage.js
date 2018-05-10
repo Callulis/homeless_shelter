@@ -107,7 +107,7 @@ class ShelterPage extends React.Component {
     const MapAppState  = this.props.mappedAppSate;
     const deleteShelter = this.props.mapppedShelterToDel;
     const editShelter = this.props.mapppedShelterToEdit;
-    //const isEmpty = shelters.length === 0;
+    const isEmpty = shelters.length === 0;
     if (!shelter && isAdding) {
       shelterAddMessage = 'New Shelter Adding..';
       ShelterMessageStyle = 'info';
@@ -124,11 +124,9 @@ class ShelterPage extends React.Component {
       shelterAddMessage = error;
       ShelterMessageStyle ='danger';
     }
-    /*
     if (isEmpty && isFetching ) {
       return <h2><i>Loading...</i></h2>
     }
-    */
     if (!shelter && !isAdding && !error) {
       shelterAddMessage = null;
     }
@@ -153,28 +151,7 @@ class ShelterPage extends React.Component {
 
       <div className="row">
           <div className="col-md-12">
-          <h3>Shelter Posts</h3>
 
-          <table className="table sheltersTable">
-          <thead>
-          <tr><th>Name</th>
-          <th>Comment</th>
-          <th className="textCenter">Edit</th>
-          <th className="textCenter">Delete</th>
-          <th className="textCenter">View</th></tr>
-          </thead>
-          <tbody>
-          
-          <tr>
-          <td>{b.title}</td>
-          <td>{b.comment}</td>
-           <td className="textCenter"><Button onClick={() => this.showEditModal(b)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
-           <td className="textCenter"><Button onClick={() => this.showDeleteModal(b)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
-           <td className="textCenter"><Link to={`/shelter/${b._id}`}>View Details</Link> </td>
-           </tr> )}
-          </tbody>
-          </table>
-          </div>
 
       </div>
       <Modal
