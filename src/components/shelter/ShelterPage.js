@@ -107,7 +107,7 @@ class ShelterPage extends React.Component {
     const MapAppState  = this.props.mappedAppSate;
     const deleteShelter = this.props.mapppedShelterToDel;
     const editShelter = this.props.mapppedShelterToEdit;
-    const isEmpty = shelters.length === 0;
+    //const isEmpty = shelters.length === 0;
     if (!shelter && isAdding) {
       shelterAddMessage = 'New Shelter Adding..';
       ShelterMessageStyle = 'info';
